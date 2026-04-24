@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inventory</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">Help</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Inventory</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-searchbar
+    [(ngModel)]="searchName"
+    placeholder="Search by item name"
+    (ionClear)="search()"
+    (ionSubmit)="search()"
+  ></ion-searchbar>
+
+  <div class="ion-padding">
+    <ion-button expand="block" (click)="search()" [disabled]="loading">Search</ion-button>
+    <ion-button expand="block" fill="outline" (click)="loadAll()" [disabled]="loading">Reload all</ion-button>
+  </div>
+
+  <div class="ion-padding" *ngIf="loading">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div class="ion-padding" *ngIf="errorMessage">
+    <ion-text color="danger">{{ errorMessage }}</ion-text>
+  </div>
+
+  <ion-list *ngIf="!loading && items.length">
+    <ion-item *ngFor="let item of items" button detail="true" (click)="openForEdit(item.item_name)">
+      <ion-label>
+        <div><strong>{{ item.item_name }}</strong> (ID: {{ item.item_id }})</div>
+        <div>Category: {{ item.category }} | Stock: {{ item.stock_status }}</div>
+        <div>Qty: {{ item.quantity }} | Price: {{ item.price }} | Supplier: {{ item.supplier_name }}</div>
+        <div *ngIf="item.featured_item">Featured item</div>
+        <div *ngIf="item.special_note">Note: {{ item.special_note }}</div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,60 @@
+﻿<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Privacy & Security</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">Help</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Privacy & Security</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Data we collect</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      This app stores inventory records such as item name, category, quantity, price, supplier name,
+      stock status, featured flag, and optional notes. Personal user identity data is not required for
+      basic inventory operations.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>How data is used</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Inventory data is used only to support list, search, create, update, and delete functions. Users
+      should enter only business-related information and avoid placing sensitive personal details in
+      the special note field.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Security controls</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      The app communicates with the server through HTTPS to protect data in transit. Input
+      validation is applied for required fields and numeric values to reduce invalid or unsafe data
+      submissions.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>User responsibilities</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Keep your mobile device updated, use device lock protection, and avoid using public unsecured
+      networks when managing inventory records. Report suspicious changes in records to your team
+      immediately.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
